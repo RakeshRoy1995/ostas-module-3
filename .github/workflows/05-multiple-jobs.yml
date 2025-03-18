@@ -17,7 +17,7 @@ jobs:
             # Store output as a job output to demonstrate job outputs
             - name: Set job output
               id: dragon-output
-              run: echo "dragon-message=$(cat dragon.txt)" >> $GITHUB_OUTPUT
+              run: echo "dragon-message=$(sed 's/</\\</g; s/>/\\>/g' dragon.txt)" >> $GITHUB_OUTPUT
     
     test_job:
         name: Test Job
